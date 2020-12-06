@@ -3,6 +3,8 @@ import { action } from '@ember/object';
 
 export default class LoginFormComponent extends Component {
 
+  userId = null;
+  
   loginAsUserWithId(val){
     console.log('UserId: ', val);
   }
@@ -11,7 +13,7 @@ export default class LoginFormComponent extends Component {
    *
    * @param {Event & {target: HTMLFormElement}} evt
 */
-@action 
+@action
 onLoginFormSubmit(evt){
   const { target } = evt;
   const val = target.querySelector('select').value;
