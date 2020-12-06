@@ -11,7 +11,7 @@ export default class LoginFormComponent extends Component {
    *
    * @param {Event & {target: HTMLFormElement}} evt
 */
-@action
+@action 
 onLoginFormSubmit(evt){
   const { target } = evt;
   const val = target.querySelector('select').value;
