@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -12,15 +12,9 @@ module('Integration | Component | team-sidebar', function(hooks) {
 
     await render(hbs`<TeamSidebar />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <TeamSidebar>
-        template block text
-      </TeamSidebar>
-    `);
-
+    assert.deepEqual(this.element.textContent.trim()
+    .replace(/\s*\n+\s*/g, '\n').split('\n'),
+    ['Mike North', 'Channels', '#', 'general', 'Logout']);
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
